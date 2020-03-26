@@ -12,7 +12,6 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "StudentSessionServlet", urlPatterns = {"/student"})
 public class StudentSessionServlet extends HttpServlet {
 
-    private static Integer VISIT = 0;
    
      protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -21,9 +20,9 @@ public class StudentSessionServlet extends HttpServlet {
         
         // zad 1
         Integer visitCounter = (Integer) session.getAttribute("visitCounter");
-        if (visitCounter == null) VISIT = 0;
-        else VISIT++;
-        session.setAttribute("visitCounter", VISIT);
+        if (visitCounter == null) visitCounter = 0;
+        else visitCounter++;
+        session.setAttribute("visitCounter", visitCounter);
         
         
         request.getRequestDispatcher("student.jsp").forward(request, response);

@@ -22,8 +22,6 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "StudentsTableServlet", urlPatterns = {"/studentsTable"})
 public class StudentsTableServlet extends HttpServlet {
     
-    private static List<Person> ALL_STUDENTS = new ArrayList<>();
-
      protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -35,12 +33,12 @@ public class StudentsTableServlet extends HttpServlet {
         HttpSession session = request.getSession();
         List<Person> students = (List<Person>) session.getAttribute("students");
         if (students == null) {
-            ALL_STUDENTS = new ArrayList<>();
+            students = new ArrayList<>();
         }
         
         students.add(person);
 
-        session.setAttribute("students", ALL_STUDENTS);
+        session.setAttribute("students", students);
         request.getRequestDispatcher("studentsTable.jsp").forward(request, response);
 
     }
@@ -53,10 +51,10 @@ public class StudentsTableServlet extends HttpServlet {
         
         List<Person> students = (List<Person>) session.getAttribute("students");
         if (students == null) {
-            ALL_STUDENTS = new ArrayList<>();
+            students = new ArrayList<>();
         }
         
-        session.setAttribute("students", ALL_STUDENTS);
+        session.setAttribute("students", students);
        
         request.getRequestDispatcher("studentsTable.jsp").forward(request, response);
 
