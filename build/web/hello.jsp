@@ -11,6 +11,7 @@
         <!-- EL: po wpisaniu html w formularzu: następuje jego interpretacja i 'wykonanie'  -->
         
         <h1>Cześć, ${person.firstName} ${person.lastName}! (to JSP)</h1>
+        <h1>Cześć, <c:out value="${person.firstName}"/>! (to c:out)</h1>
         <a href = "mailto: ${person.email}">Wyslij maila</a> 
        
         
