@@ -23,7 +23,7 @@
             
 <!--        <span style='color: pink'><c:out value="${person.firstName}"/></span>-->
 
-        <script>alert('Jestem zlym hackerem i zaraz cie zjem <c:out value="${person.firstName}"/>!');</script>
+        <!--<script>alert('Jestem zlym hackerem i zaraz cie zjem <c:out value="${person.firstName}"/>!');</script>-->
         
       
     </body>
